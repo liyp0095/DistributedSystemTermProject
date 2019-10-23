@@ -1,6 +1,6 @@
 ## 2019-10-23
 
-- Useful links for setup Private Ethereum 
+- Useful links for setup Private Ethereum
 
 https://medium.com/@yashwanthvenati/setup-private-ethereum-blockchain-network-with-multiple-nodes-in-5-mins-708ab89b1966
 
