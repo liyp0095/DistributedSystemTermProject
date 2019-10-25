@@ -4,7 +4,26 @@
 
 - tutorial https://learnblockchain.cn/2018/01/12/first-dapp/
 
-I ama Jingqiao, say hi to you.
+Tool list:
+Node
+Truffle: for test/deploy smart contracts
+         npm install -g truffle
+Ganache: build private blockchain
+        download https://www.trufflesuite.com/ganache
+        port: 7545
+remix: https://remix.ethereum.org/
+       write .sol files, compile and test on-line
+web3 : Ethereum JavaScript API
+        https://github.com/ethereum/web3.js/
+MetaMask:  run Ethereum dApps right in your browser without running a full Ethereum node.
+        https://metamask.io/  
+
+Languages:
+Solidity: It is an object-oriented, high-level language for implementing smart contracts.
+HTML/CSS/JS
+
+
+
 
 ## 2019-10-23
 
@@ -15,5 +34,7 @@ I ama Jingqiao, say hi to you.
 - find out what dapp could do
 - build a sample dapp with the tools (I do not remeber the name)
 - build development platform on our own system (mac, windows, linux?)
+
+jlkhlkkh
 
 - [ ] have a meeting on Friday
