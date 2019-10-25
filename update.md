@@ -2,6 +2,8 @@
 
 - [A blockchain in 200 lines of code](https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54)
 
+- tutorial https://learnblockchain.cn/2018/01/12/first-dapp/
+
 I ama Jingqiao, say hi to you.
 
 ## 2019-10-23
