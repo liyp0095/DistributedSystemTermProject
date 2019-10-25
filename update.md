@@ -4,7 +4,7 @@
 
 - tutorial https://learnblockchain.cn/2018/01/12/first-dapp/
 
-- Tool list:
+ Tool list:
 - Node
 - Truffle: for test/deploy smart contracts
          npm install -g truffle
@@ -18,7 +18,7 @@
 - MetaMask:  run Ethereum dApps right in your browser without running a full Ethereum node.
         https://metamask.io/  
 
-- Languages:
+Languages:
 - Solidity: It is an object-oriented, high-level language for implementing smart contracts.
 - HTML/CSS/JS
 
