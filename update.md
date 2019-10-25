@@ -4,23 +4,23 @@
 
 - tutorial https://learnblockchain.cn/2018/01/12/first-dapp/
 
-Tool list:
-Node
-Truffle: for test/deploy smart contracts
+- Tool list:
+- Node
+- Truffle: for test/deploy smart contracts
          npm install -g truffle
-Ganache: build private blockchain
+- Ganache: build private blockchain
         download https://www.trufflesuite.com/ganache
         port: 7545
-remix: https://remix.ethereum.org/
+- remix: https://remix.ethereum.org/
        write .sol files, compile and test on-line
-web3 : Ethereum JavaScript API
+- web3 : Ethereum JavaScript API
         https://github.com/ethereum/web3.js/
-MetaMask:  run Ethereum dApps right in your browser without running a full Ethereum node.
+- MetaMask:  run Ethereum dApps right in your browser without running a full Ethereum node.
         https://metamask.io/  
 
-Languages:
-Solidity: It is an object-oriented, high-level language for implementing smart contracts.
-HTML/CSS/JS
+- Languages:
+- Solidity: It is an object-oriented, high-level language for implementing smart contracts.
+- HTML/CSS/JS
 
 
 
