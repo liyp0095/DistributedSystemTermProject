@@ -6,7 +6,11 @@
 
 I ama Jingqiao, say hi to you.
 
+<<<<<<< HEAD
 merge test
+=======
+I am Yuepei Li. 
+>>>>>>> eaaef32fad2ab529eb1963c03dec27940ab42f0a
 
 ## 2019-10-23
 
