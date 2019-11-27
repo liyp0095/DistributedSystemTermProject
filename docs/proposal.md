@@ -8,7 +8,7 @@
 ## Brief description:
 
 We create a twitter application,
-using distributed system like spark, kafka to deal with real-time data, and using flask to visualize popular twitter hashtags. The pipeline is like the following, which includes listening port by using socket and distributed system like spark.
+using distributed system like spark, kafka to deal with real-time data, and using flask to visualize popular twitter hashtags. The pipeline is like the following, which includes listening port by using socket and distributed system like spark.1111
 
 ![da](../pictures/Picture1.png)
 
