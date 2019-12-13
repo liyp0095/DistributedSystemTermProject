@@ -1,18 +1,18 @@
 ## 
-- 1. $truffle init //initialize a truffle project
-- 2. $touch package.json 
-- 3. $truffle compile
-- 4. config truffle
-- 5. create 2_deploy_contracts.js
-- 6. open ganache
-- 7. $truffle migrate
-- 8. $mkdir src
-- 9. under src file
--   $touch index.html
-- 10.$touch app.js
-- 11.under root directory
--   $touch bs-config.json //config the location of files
-- 12. npm run dev
+- $truffle init //initialize a truffle project
+- $touch package.json 
+- $truffle compile
+- config truffle
+- create 2_deploy_contracts.js
+- open ganache
+- $truffle migrate
+- $mkdir src
+- under src file
+- $touch index.html
+- $touch app.js
+- under root directory
+- $touch bs-config.json //config the location of files
+- npm run dev
 
 ## link to flightsurety
 https://github.com/sumchat/flightSurety-master
