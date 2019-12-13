@@ -1,3 +1,23 @@
+## 
+- $truffle init //initialize a truffle project
+- $touch package.json 
+- $truffle compile
+- config truffle
+- create 2_deploy_contracts.js
+- open ganache
+- $truffle migrate
+- $mkdir src
+- under src file
+- $touch index.html
+- $touch app.js
+- under root directory
+- $touch bs-config.json //config the location of files
+- npm run dev
+
+## link to flightsurety
+https://github.com/sumchat/flightSurety-master
+https://github.com/Rishabh42/HealthCare-Insurance-Ethereum
+https://github.com/bukosabino/truffle-voting-dapp
 ## 2019-10-25
 
 - [A blockchain in 200 lines of code](https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54)
