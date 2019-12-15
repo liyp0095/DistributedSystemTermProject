@@ -1,0 +1,20 @@
+1. under farmer's account
+   addFarmer("xxx","123") //farmer xxx register with password 123
+   addClaim("corn","Ames",123,2,"hail") //Only allow farmers who registered can add claim, otherwise throw error.
+   getFarmer(address) // return userName
+   isAddressRegistered() // check if the message sender is registered
+   checkStatus() //return a string. If not been approved, return "waiting to approve"
+   viewClaim() // check its claim content. return (claimId, crop type, city, timestamp, acre, description)
+ 
+2. under agent's account
+   //need to change the address in the line address public agent_address=
+   isAgent() // check whether the sender address is the agent address
+   getClaim(1) //Only allows the agent to see the content of the claim by searching the claimId.
+   agentApprove(1,true) //Only allows the agent to approve to the claim. True for approval, false for reject. Here is to approve claim 1.
+   //After the agent approve, when switch to farmer's account, and call checkStatus(), it will return "You've been Approved!)
+   getWeather("Ames",123)// Return the weather if the data exist.  After addWeather("Ames",123,"hail")called by weather, getWeather will return "hail"
+
+3. under weather's account
+   //need to change the address in the line public weather_address=
+   addWeather("Ames",123,"hail") //input city, time, and weather
+   isWeather() // check whether the sender address is the weather address
