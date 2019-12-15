@@ -25,26 +25,44 @@ contract Insurance {
       emit farmerAdded(farmer_counter);
   }
 
+  //for both farmer and agent, they can check the farmers userName
+  function getFarmer(uint _farmerId) public view returns(string memory _userName){
+      return farmers[_farmerId].userName;
+  }
+  //agent can check the client's claim
+  function getClaim(uint _claimeId ) public view 
+  returns (uint _claimId,string memory _crop, string memory _city, uint time, uint size, string memory _description){
+      return(
+          _claimeId,
+          claims[_claimeId].crop,
+          claims[_claimeId].city,
+          claims[_claimeId].time,
+          claims[_claimeId].size,
+          claims[_claimeId].description
+      );
+  }
   struct Claim{
-      uint farmId;//should be claimid
+      uint claimId;//should be claimid
+      string crop;
       string city;
       uint time;
+      uint size;
       string description;
-      bool isRefundable;
-      bool isProved;
   }
   mapping (uint => Claim) claims;
   event claimAdded(uint id);
-
-  function addClaim(string memory _city, uint _time, string memory _description) public{
+  
+  
+  //farmer claim a new claim
+  function addClaim(string memory _crop, string memory _city, uint _time, uint _size, string memory _description) public{
       claim_counter = claim_counter + 1;
       claims[claim_counter] = Claim(
-          {farmId: claim_counter,
+          {claimId: claim_counter,
+          crop: _crop,
           city: _city,
           time: _time,
-          description: _description,
-          isRefundable: false,
-          isProved : false
+          size: _size,
+          description: _description
           });
       emit claimAdded(claim_counter);
   }
@@ -52,16 +70,21 @@ contract Insurance {
   struct Weather{
       string city;
       uint time;
-      uint level;
+      string weather;
   }
 
-  mapping (string => uint) weathers;
+  mapping (string => string) weathers;
   event weatherAdded(string _city);
-  function addWeather(string memory _city, uint _time, uint _level) public{
-      weathers[_city] = _level;
+  //for weather data input
+  function addWeather(string memory _city, uint _time, string memory _weather) public{
+      weathers[_city] = _weather;
       emit weatherAdded(_city);
   }
 
+
+  function agentProve() public returns(bool prove){
+
+  }
   function isRefundable() public returns(bool isRefund){
       //todo
       return true;
