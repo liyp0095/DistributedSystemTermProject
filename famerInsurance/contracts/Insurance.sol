@@ -3,23 +3,20 @@ contract Insurance {
     
   //modifiers will be added to constrain the access.
   uint public money;
-  uint claim_counter;
-  uint farmer_counter;
-  
+  uint public claim_counter;
+  uint public farmer_counter;
+  uint public weather_counter;
 ///////////////////////////////farmers Implementation///////////////////////////////////////////
   struct Farmer{
       uint farmerId;
       string userName;
       string pwd;
       bool isRegisterd;
+      uint claim_id; //assure one farmer has only one claim;
   }
   
   mapping (address => Farmer) farmers;
   event farmerAdded(uint farmerid);
-
-  constructor() public {
-    money = 10;
-  }
 
   //when register, add farmer information
   function addFarmer(string memory _userName, string memory _pwd) public{
@@ -29,7 +26,8 @@ contract Insurance {
           {farmerId: farmer_counter,
            userName: _userName,
            pwd: _pwd,
-           isRegisterd : true
+           isRegisterd : true,
+           claim_id : 0 //initialize claim id to 0;
           });
       emit farmerAdded(farmer_counter);
   }
@@ -72,13 +70,30 @@ contract Insurance {
           description: _description,
           isProved: 0
           });
+      farmers[msg.sender].claim_id = claim_counter; // update claim id to the farmer account.
       emit claimAdded(claim_counter);
   }
+  
+  //only for farmers to review
+  function viewClaim() public view
+  returns (uint _claimId,string memory _crop, string memory _city, uint time, uint size, string memory _description){
+      uint id = farmers[msg.sender].claim_id;
+      return(
+          id,
+          claims[id].crop,
+          claims[id].city,
+          claims[id].time,
+          claims[id].size,
+          claims[id].description
+      );
+  }
     //farmer can check the claim status
-  function checkStatus(uint claim_id) public view returns(string memory _isProved){
-      if(claims[claim_id].isProved == 1){
+    //Only one claim for each
+  function checkStatus() public view returns(string memory _isProved){
+      uint id = farmers[msg.sender].claim_id;
+      if(claims[id].isProved == 1){
           return "You've been Approved!";
-      }else if(claims[claim_id].isProved == 2){
+      }else if(claims[id].isProved == 2){
           return "Sorry, your claim is rejected.";
       }else{
           return "pending";
@@ -102,9 +117,10 @@ contract Insurance {
  
   }
   
+  //require agent access
   function getClaim(uint _claimeId ) public view
   returns (uint _claimId,string memory _crop, string memory _city, uint time, uint size, string memory _description){
-      require(agent_address == msg.sender,"You are not authorized");
+      require(msg.sender == agent_address,"You are not authorized");
       return(
           _claimeId,
           claims[_claimeId].crop,
@@ -115,7 +131,9 @@ contract Insurance {
       );
   }
  
+  //require agent approve
   function agentApprove(uint claim_id, bool _isProved) public{
+      require(agent_address == msg.sender,"You are not authorized");
       if(_isProved){
           claims[claim_id].isProved = 1; //approve
       }else{
@@ -125,7 +143,16 @@ contract Insurance {
 
   //Refund to farmer. Agent call it. Need modifier.Need to be tested.
   function refund(address payable farmer) public payable{
+      require(agent_address == msg.sender,"You are not authorized");
       farmer.transfer(msg.value);
+  }
+ 
+ 
+  //Agent can check for weather information
+  function getWeather(string memory _city, uint _time) public view returns (string memory c, uint t,string memory w){
+      return(weathers[_city][_time].city,
+      weathers[_city][_time].time,
+      weathers[_city][_time].weather);
   }
   
  ///////////////////////////////Weather Implementation//////////////////////////////////////// 
@@ -143,18 +170,24 @@ contract Insurance {
   }
   
   struct Weather{
+      uint weatherId;
       string city;
       uint time;
       string weather;
   }
 
-  mapping (string => string) weathers;
-  event weatherAdded(string _city);
+  //mapping (uint => Weather) weathers;
+  mapping (string => mapping (uint => Weather)) weathers;
+
   //for weather data input
   //How to add all figures to blockchain, and search for the weather of a certain place and time.
   function addWeather(string memory _city, uint _time, string memory _weather) public{
       require(weather_address == msg.sender,"You are not authorized");
-      weathers[_city] = _weather;
-      emit weatherAdded(_city);
+      weather_counter = weather_counter + 1;
+      weathers[_city][_time].weatherId = weather_counter;
+      weathers[_city][_time].city = _city;
+      weathers[_city][_time].time = _time;
+      weathers[_city][_time].weather = _weather;
   }
+  
 }
