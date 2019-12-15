@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 contract Insurance {
   //modifiers will be added to constrain the access.
-  uint money;
+  uint public money;
   uint claim_counter;
   uint farmer_counter;
 
@@ -13,6 +13,10 @@ contract Insurance {
 
   mapping (uint => Farmer) farmers;
   event farmerAdded(uint farmerid);
+
+  constructor() public {
+    money = 10;
+  }
 
   //when register, add farmer information
   function addFarmer(string memory _userName, string memory _pwd) public{
