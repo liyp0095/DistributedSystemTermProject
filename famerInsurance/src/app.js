@@ -5,8 +5,8 @@ App = {
   load: async () => {
     await App.loadWeb3()
     //await App.loadAccount()
-    //await App.loadContract()
-    //await App.render()
+    await App.loadContract()
+    // await App.render()
   },
 
   // https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
@@ -44,7 +44,7 @@ App = {
 
   loadAccount: async () => {
     // Set the current blockchain account
-    //App.account = web3.eth.accounts[0]
+    App.account = web3.eth.accounts[0]
   },
 
   loadContract: async () => {

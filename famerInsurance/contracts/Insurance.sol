@@ -1,7 +1,13 @@
 pragma solidity ^0.5.0;
 contract Insurance {
 
-  uint money;
+  struct Farmer {
+    uint farmerId;
+    string userName;
+    string pwd;
+  }
+
+  /* uint money;
   uint claim_counter;
   uint farmer_counter;
 
@@ -72,7 +78,7 @@ contract Insurance {
       return 100;
 
 
-  }
+  } */
 
 
 }
