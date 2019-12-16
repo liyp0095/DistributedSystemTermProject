@@ -61,6 +61,15 @@ App = {
     $("#bt2").click(function(){
       window.location.href='newClaim.html';
     });
+
+    App.contracts.Insurance.deployed().then(function(instance){
+      $("#bt3").click(function(){
+        instance.checkStatus({from:App.account}).then(function(value) {
+          window.alert(value);
+          // $("#claim_status").append(`<p> ${value} </p>`)
+        });
+      });
+    });
     // App.contracts.Insurance.deployed().then(function(instance){
     //   // window.alert(instance.address);
     //   // $("#address").append(instance.address);

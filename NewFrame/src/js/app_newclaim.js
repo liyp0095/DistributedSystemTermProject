@@ -70,10 +70,11 @@ App = {
           var _start = new Date($("#start").val()).getTime()/1000;
           var _end = new Date($("#end").val()).getTime()/1000;
           var _des = $("#Description").val();
+          var _time_off = new Date().getTimezoneOffset()*60
+          var _start_local = _start + _time_off;
 
-          instance.addClaim(_crop_type, _city, _start, _acre, _des);
+          instance.addClaim(_crop_type, _city, _start_local, _acre, _des);
 
-          // window.alert(new Date(_start).getTime()/1000);
           // instance.addFarmer(_username, _password);
           window.location.href="personalPage.html";
           // window.alert("1");

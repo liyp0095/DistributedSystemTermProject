@@ -81,7 +81,7 @@ App = {
           if(value) {
             window.location.href='html/agent.html';
           }else {
-            window.alert('Action Denied! \n You are not a Insurance Agent!');
+            window.alert('Action Denied! \nYou are not a Insurance Agent!');
           }
         });
       });

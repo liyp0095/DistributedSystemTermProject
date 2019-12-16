@@ -67,12 +67,14 @@ App = {
         // window.alert(_claim_id);
         instance.getClaim(_claim_id, {from:App.account}).then(function(value) {
             // window.alert(value);
+          $("#claimResult").empty();
           $("#claimResult").append(`<p> ClaimID: \t ${value[0]} </p>`)
           $("#claimResult").append(`<p> CropType: \t ${value[1]} </p>`)
           $("#claimResult").append(`<p> City: \t ${value[2]} </p>`)
           $("#claimResult").append(`<p> Time: \t ${new Date(value[3]*1000)} </p>`)
           $("#claimResult").append(`<p> Acres: \t ${value[4]} </p>`)
           $("#claimResult").append(`<p> Desp: \t ${value[5]} </p>`)
+          $("#claimResult").append(`<br>`)
         });
       });
 
@@ -83,6 +85,7 @@ App = {
         // window.alert(_claim_id);
         instance.getWeather(_city, _time).then(function(value) {
             // window.alert(value);
+          $("#weatherResult").empty();
           $("#weatherResult").append(`<p> City: \t ${value[0]} </p>`)
           $("#weatherResult").append(`<p> Date: \t ${new Date(value[1]*1000)} </p>`)
           $("#weatherResult").append(`<p> Weather: \t ${value[2]} </p>`)
