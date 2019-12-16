@@ -58,44 +58,30 @@ App = {
   },
 
   render: async () => {
-    App.contracts.Insurance.deployed().then(function(instance){
-      window.alert(instance.address);
-      $("#address").append(instance.address);
-      $("#Register").click(function(){
-        var _username = $("input:text").val();
-        var _password = $("input:password").val();
-        instance.addFarmer(_username, _password);
-        window.location.href="personalPage.html";
-        // window.alert("1");
-        // window.alert(instance.money());
-        // window.alert($("input:password").val());
-      });
-      // instance.getFarmer(1).then(function(value) {
-      //   window.alert(value);
-      // });
+    $("#bt2").click(function(){
+      window.location.href='newClaim.html';
     });
-    // window.alert("Hello")
-    // App.instance.then(function(instance) {
-    //   window.alert("Hello")
-    //
-    //   insuranceInstance = instance;
-    //   window.alert(insuranceInstance.candidate())
+    // App.contracts.Insurance.deployed().then(function(instance){
+    //   // window.alert(instance.address);
+    //   // $("#address").append(instance.address);
+    //   // $("#Register").click(function(){
+    //   //   var _username = $("input:text").val();
+    //   //   var _password = $("input:password").val();
+    //   //   instance.addFarmer(_username, _password);
+    //   //   // window.alert("1");
+    //   //   // window.alert(instance.money());
+    //   //   // window.alert($("input:password").val());
+    //   // });
+    //   // instance.getFarmer(1).then(function(value) {
+    //   //   window.alert(value);
+    //   // });
     // });
-    // window.alert(App.candidate())
   },
 
   test: async () => {
     $("#address").append("test: ... ");
   }
 }
-
-// $(() => {
-//   alert("hello jgkl")
-//   $(window).load(() => {
-//     window.alert("hi")
-//     App.load()
-//   })
-// })
 
 
 

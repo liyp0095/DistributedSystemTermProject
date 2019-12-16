@@ -50,53 +50,71 @@ App = {
     const insurance = await $.getJSON('../Insurance.json')
     App.contracts.Insurance = TruffleContract(insurance)
     App.contracts.Insurance.setProvider(App.web3Provider)
-
-    // $.getJSON("Insurance.json", function(insurance) {
-    //   App.contracts.Insurance = TruffleContract(insurance);
-    //   App.contracts.Insurance.setProvider(App.web3Provider);
-    // });
   },
 
   render: async () => {
+
+    // window.alert("1");
+    // window.alert("1");
+    // Load account data
+    web3.eth.getCoinbase(function(err, account) {
+      if (err === null) {
+        App.account = account;
+        $("#accountAddress").html("Your Account: " + account);
+      }
+    });
+
     App.contracts.Insurance.deployed().then(function(instance){
-      window.alert(instance.address);
-      $("#address").append(instance.address);
-      $("#Register").click(function(){
-        var _username = $("input:text").val();
-        var _password = $("input:password").val();
-        instance.addFarmer(_username, _password);
-        window.location.href="personalPage.html";
-        // window.alert("1");
-        // window.alert(instance.money());
-        // window.alert($("input:password").val());
+      // instance.addFarmer("123", "fjljg");
+      $("#farm").click(function(){
+        instance.isAddressRegistered({from: App.acount}).then(function(value) {
+          if(value) {
+            window.location.href='html/personalPage.html';
+          }else {
+            window.location.href='html/login.html';
+          }
+        });
       });
+
+      $("#agent").click(function(){
+        instance.isAgent({from: App.acount}).then(function(value) {
+          if(value) {
+            window.location.href='html/agent.html';
+          }else {
+            window.alert('Action Denied! \n You are not a Insurance Agent!');
+          }
+        });
+      });
+
+      $("#weather").click(function(){
+        instance.isWeather({from: App.acount}).then(function(value) {
+          if(value) {
+            window.location.href='html/personalPage.html';
+          }else {
+            window.alert("Action Denied! \n You are not a Weather Agent!")
+          }
+        });
+      });
+
+      // window.alert(instance.address);
+      // $("#address").append(instance.address);
+      // $("#Register").click(function(){
+      //   var _username = $("input:text").val();
+      //   var _password = $("input:password").val();
+      //   instance.addFarmer(_username, _password);
+      //   // window.alert(instance.money());
+      //   // window.alert($("input:password").val());
+      // });
       // instance.getFarmer(1).then(function(value) {
-      //   window.alert(value);
+      //   // window.alert(value);
       // });
     });
-    // window.alert("Hello")
-    // App.instance.then(function(instance) {
-    //   window.alert("Hello")
-    //
-    //   insuranceInstance = instance;
-    //   window.alert(insuranceInstance.candidate())
-    // });
-    // window.alert(App.candidate())
   },
 
   test: async () => {
     $("#address").append("test: ... ");
   }
 }
-
-// $(() => {
-//   alert("hello jgkl")
-//   $(window).load(() => {
-//     window.alert("hi")
-//     App.load()
-//   })
-// })
-
 
 
 $(function() {

@@ -58,44 +58,52 @@ App = {
   },
 
   render: async () => {
-    App.contracts.Insurance.deployed().then(function(instance){
-      window.alert(instance.address);
-      $("#address").append(instance.address);
-      $("#Register").click(function(){
-        var _username = $("input:text").val();
-        var _password = $("input:password").val();
-        instance.addFarmer(_username, _password);
-        window.location.href="personalPage.html";
-        // window.alert("1");
-        // window.alert(instance.money());
-        // window.alert($("input:password").val());
-      });
-      // instance.getFarmer(1).then(function(value) {
-      //   window.alert(value);
-      // });
+      App.contracts.Insurance.deployed().then(function(instance){
+        // window.alert(instance.address);
+        $("input:submit").click(function(){
+        // p.append()
+        // $("#address").append(instance.address);
+          var _crop_type = $("#crop_type").val();
+          var _state = $("#state").val();
+          var _city = $("#city_name").val();
+          var _acre = $("#acre").val();
+          var _start = new Date($("#start").val()).getTime()/1000;
+          var _end = new Date($("#end").val()).getTime()/1000;
+          var _des = $("#Description").val();
+
+          instance.addClaim(_crop_type, _city, _start, _acre, _des);
+
+          window.alert(new Date(_start).getTime()/1000);
+          // instance.addFarmer(_username, _password);
+          window.location.href="personalPage.html";
+          // window.alert("1");
+          // window.alert(instance.money());
+          // window.alert($("input:password").val());
+        });
+
+      // window.location.href='newClaim.html';
     });
-    // window.alert("Hello")
-    // App.instance.then(function(instance) {
-    //   window.alert("Hello")
-    //
-    //   insuranceInstance = instance;
-    //   window.alert(insuranceInstance.candidate())
+    // App.contracts.Insurance.deployed().then(function(instance){
+    //   // window.alert(instance.address);
+    //   // $("#address").append(instance.address);
+    //   // $("#Register").click(function(){
+    //   //   var _username = $("input:text").val();
+    //   //   var _password = $("input:password").val();
+    //   //   instance.addFarmer(_username, _password);
+    //   //   // window.alert("1");
+    //   //   // window.alert(instance.money());
+    //   //   // window.alert($("input:password").val());
+    //   // });
+    //   // instance.getFarmer(1).then(function(value) {
+    //   //   window.alert(value);
+    //   // });
     // });
-    // window.alert(App.candidate())
   },
 
   test: async () => {
     $("#address").append("test: ... ");
   }
 }
-
-// $(() => {
-//   alert("hello jgkl")
-//   $(window).load(() => {
-//     window.alert("hi")
-//     App.load()
-//   })
-// })
 
 
 
