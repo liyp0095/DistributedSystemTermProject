@@ -71,7 +71,7 @@ App = {
           if(value) {
             window.location.href='html/personalPage.html';
           }else {
-            window.location.href='html/login.html';
+            window.location.href='html/register.html';
           }
         });
       });
@@ -89,7 +89,7 @@ App = {
       $("#weather").click(function(){
         instance.isWeather({from: App.acount}).then(function(value) {
           if(value) {
-            window.location.href='html/personalPage.html';
+            window.location.href='html/weather.html';
           }else {
             window.alert("Action Denied! \n You are not a Weather Agent!")
           }

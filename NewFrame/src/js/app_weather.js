@@ -63,19 +63,15 @@ App = {
         $("input:submit").click(function(){
         // p.append()
         // $("#address").append(instance.address);
-          var _crop_type = $("#crop_type").val();
-          var _state = $("#state").val();
-          var _city = $("#city_name").val();
-          var _acre = $("#acre").val();
-          var _start = new Date($("#start").val()).getTime()/1000;
-          var _end = new Date($("#end").val()).getTime()/1000;
-          var _des = $("#Description").val();
+          var _city = $("#city").val();
+          var _time = new Date($("#time").val()).getTime()/1000;
+          var _weather = $('[name="weather"]').val();
 
-          instance.addClaim(_crop_type, _city, _start, _acre, _des);
-
+          instance.addWeather(_city, _time, _weather);
+          //
           // window.alert(new Date(_start).getTime()/1000);
-          // instance.addFarmer(_username, _password);
-          window.location.href="personalPage.html";
+          // // instance.addFarmer(_username, _password);
+          // window.location.href="personalPage.html";
           // window.alert("1");
           // window.alert(instance.money());
           // window.alert($("input:password").val());

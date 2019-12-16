@@ -59,7 +59,7 @@ App = {
 
   render: async () => {
     App.contracts.Insurance.deployed().then(function(instance){
-      window.alert(instance.address);
+      // window.alert(instance.address);
       $("#address").append(instance.address);
       $("#Register").click(function(){
         var _username = $("input:text").val();

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather Agent</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Libre+Baskerville&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js">
+    </script>
+  </head>
+  <body>
+    <div class="bg_img"></div>
+    <div class="new_claim">
+
+      <form class="claim_form">
+          <h4>Weather Agent Input</h4>
+          <label for="city">
+              City:
+          </label>
+          <input type="text" id="city">
+          <label for="time">
+              Date:
+          </label>
+          <input type="date" id="time">
+          <label for="weather">
+              Weather:
+          </label>
+          <input type = "text" list = "weather" name="weather">
+            <datalist id = "weather">
+              <option value = "Wind">
+              <option value = "Cloud">
+              <option value = "Rain">
+              <option value = "Cold">
+              <option value = "Hot">
+              <option value = "Warm">
+            </datalist>
+          <br>
+          <input type="submit" value="submit" class="submit">
+          <br>
+
+      </form>
+    </div>
+    <script src="../js/truffle-contract.js"></script>
+    <script src="../js/app_weather.js"></script>
+  </body>
+</html>

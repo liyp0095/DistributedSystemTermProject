@@ -59,43 +59,53 @@ App = {
 
   render: async () => {
     App.contracts.Insurance.deployed().then(function(instance){
-      // window.alert(instance.address);
       // $("#address").append(instance.address);
-      $("#claimSearch").click(function(){
-        var _username = $("input:text").val();
-        var _password = $("input:password").val();
-        instance.addFarmer(_username, _password);
-        window.location.href="personalPage.html";
-        // window.alert("1");
-        // window.alert(instance.money());
-        // window.alert($("input:password").val());
+      var _claim_id = 0;
+      // instance.addClaim("jlfe", "232", 17393, 233, "iueu");
+      $("#1111").click(function(){
+        _claim_id = $("#searchClaimID").val();
+        // window.alert(_claim_id);
+        instance.getClaim(_claim_id, {from:App.account}).then(function(value) {
+            // window.alert(value);
+          $("#claimResult").append(`<p> ClaimID: \t ${value[0]} </p>`)
+          $("#claimResult").append(`<p> CropType: \t ${value[1]} </p>`)
+          $("#claimResult").append(`<p> City: \t ${value[2]} </p>`)
+          $("#claimResult").append(`<p> Time: \t ${new Date(value[3]*1000)} </p>`)
+          $("#claimResult").append(`<p> Acres: \t ${value[4]} </p>`)
+          $("#claimResult").append(`<p> Desp: \t ${value[5]} </p>`)
+        });
       });
-      // instance.getFarmer(1).then(function(value) {
-      //   window.alert(value);
-      // });
+
+      $("#2222").click(function(){
+        var _city = $("#searchWeatherCity").val();
+        var _time = new Date($("#searchWeatherTime").val()).getTime()/1000;
+
+        // window.alert(_claim_id);
+        instance.getWeather(_city, _time).then(function(value) {
+            // window.alert(value);
+          $("#weatherResult").append(`<p> City: \t ${value[0]} </p>`)
+          $("#weatherResult").append(`<p> Date: \t ${new Date(value[1]*1000)} </p>`)
+          $("#weatherResult").append(`<p> Weather: \t ${value[2]} </p>`)
+          // $("#claimResult").append(`<p> Time: \t ${new Date(value[3]*1000)} </p>`)
+          // $("#claimResult").append(`<p> Acres: \t ${value[4]} </p>`)
+          // $("#claimResult").append(`<p> Desp: \t ${value[5]} </p>`)
+        });
+      });
+
+      $("#approve").click(function(){
+        instance.agentApprove(_claim_id, true, {from: App.account});
+      });
+
+      $("#reject").click(function(){
+        instance.agentApprove(_claim_id, false, {from: App.account});
+      })
     });
-    // window.alert("Hello")
-    // App.instance.then(function(instance) {
-    //   window.alert("Hello")
-    //
-    //   insuranceInstance = instance;
-    //   window.alert(insuranceInstance.candidate())
-    // });
-    // window.alert(App.candidate())
   },
 
   test: async () => {
     $("#address").append("test: ... ");
   }
 }
-
-// $(() => {
-//   alert("hello jgkl")
-//   $(window).load(() => {
-//     window.alert("hi")
-//     App.load()
-//   })
-// })
 
 
 

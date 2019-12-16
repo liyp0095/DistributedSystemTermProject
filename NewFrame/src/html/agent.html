@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Login Form</title>
+    <title>Insurance Agent</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Bitter|Libre+Baskerville&display=swap" rel="stylesheet">
     <script type="text/javascript" src="../js/jquery-3.4.1.min.js">
@@ -10,31 +10,32 @@
   </head>
   <body>
     <div class="bg_img"></div>
-    <div class="login-box">
-        <section class="main-section">
-            <div id="searchContainer">
-              <label for="searchClaimID">SearchClaimID:</label>
-              <input id="searchClaimID" name="searchClaimID" type="number">
-              <button id="claimSearch">Search? </button>
+    <div class="insurance_agent">
+        <!-- <form id="form1" class="claim_form"> -->
+          <h4>Claim Check</h4>
+          <label for="searchClaimID">SearchClaimID:</label>
+          <input id="searchClaimID" type="number">
+          <input id="1111" type="submit" value="send" class="submit">
+        <!-- </form> -->
+        <div id="claimResult"></div>
 
-            </div>
-
-            <div id="searchWeather">
-                <label for="searchWeather">searchWeather:</label>
-                <input id="searchWeather" name="searchClaimID" type="text">
-                <button id="weatherSearch">Search? </button>
-              </div>
-            <div id="showResult">
-                <label for="name">Result:</label>
-            </div>
-            <div id="textResult">
-                <input type="text" id="name" name="name" required
-                    minlength="4" maxlength="8" size="10">
-            </div>
-            <button id="disapprove">Disapprove</button>
-            <button id="approve">Approve</button>
+        <!-- <form id="form2" class="claim_form"> -->
+          <label for="searchWeather">SearchWeather</label>
+          <label for="searchWeatherCity">City:</label>
+          <input id="searchWeatherCity" type="text" placeholder="City">
+          <label for="searchWeatherTime">Date:</label>
+          <input id="searchWeatherTime" type="date" placeholder="Time">
+          <br>
+          <input id="2222" type="submit" value="send" class="submit">
+          <br>
+        <!-- </form> -->
+        <div id="weatherResult"></div>
+        <!-- <form id="form3" class="claim_form"> -->
+          <button id="approve" class="myButton">Approve</button>
+          <button id="reject" class="myButton">Reject</button>
+        <!-- <form> -->
     </div>
     <script src="../js/truffle-contract.js"></script>
-    <script src="../js/app_newclaim.js"></script>
+    <script src="../js/app_agent.js"></script>
   </body>
 </html>
