@@ -35,7 +35,7 @@ See how I install these at https://github.com/liyp0095/DistributedSystemTermProj
 
 ```sh
 # install nodejs dependency
-cd $ProjectFolder
+cd $ProjectFolder/FarmerInsurance
 npm install
 ```
 
