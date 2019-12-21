@@ -78,7 +78,7 @@ npm run dev
 4. Then the page will jump to farmer's homepage.
 5. click new claim and set a new claim and send. New claim will add to blockchain.
 
-![new claim]()
+![new claim](/pictures/newclaim.png)
 
 #### Insurance
 
@@ -86,7 +86,7 @@ npm run dev
 2. click actions in Insurance in mainpage
 3. Search claim with ```claim id = 1```. We will get the claim the farmer added just now.  
 
-![search claim]()
+![search claim](/pictures/search.png)
 
 #### others
 
