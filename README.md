@@ -48,3 +48,57 @@ We fixed the address for weather and Insurance. So open ganache and get two addr
 address public weather_address= 0xadBCF40D5F23f15a947C09dBCcA4A4e940Aa0882;//set a fixed address for weather input
 address public agent_address= 0xc9f11De50aadCA2Cc013663CBD94DB367cE53A49; //set a fixed address for agent
 ```
+
+### Run blockchain and mainpage
+
+1. Open Ganache
+2. Add account to metamask
+
+![metamask](/pictures/metamask.png)
+
+3. Deploy smart contracts
+
+```sh
+truffle migrate
+```
+
+4. Open main page
+
+```sh
+npm run dev
+```
+
+### A test demo
+
+#### Farmer
+
+1. switch account to farmer
+2. click actions in Insurance and Weather will get ```action denied```.
+3. click actions in Farmer will go to register page (since farmer is new).
+4. Then the page will jump to farmer's homepage.
+5. click new claim and set a new claim and send. New claim will add to blockchain.
+
+![new claim]()
+
+#### Insurance
+
+1. switch account to Insurance
+2. click actions in Insurance in mainpage
+3. Search claim with ```claim id = 1```. We will get the claim the farmer added just now.  
+
+![search claim]()
+
+#### others
+
+We also have functions like:
+1. add weather info to block
+2. search weather
+3. approval or reject claim
+4. check status of a claim
+
+## Future work
+
+### functions left
+
+- [ ] refund
+- [ ] bugs
